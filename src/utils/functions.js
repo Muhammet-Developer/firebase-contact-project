@@ -4,10 +4,8 @@ import { useEffect, useState } from "react";
 import firebase from "./firebase";
 import Toastify from "./Toastify";
 
-//adduser biz app.js kullandık. app.js den usere infoyu gönderdik verilerin buraya gelmesi lazım
 export const AddUser = (info) =>{
     const db = getDatabase(firebase);
-    // user biz name ne yazdıysak onu yazmalısın
     const userRef = ref(db,"user/");
     const newUserRef = push(userRef);
 
@@ -17,7 +15,7 @@ export const AddUser = (info) =>{
         gender:info.gender
     })
     Toastify("Contact Added Successfully");
-    // console.log("add userda bilgiler kaydedildi")
+    // console.log("add user ")
 }
 
 //READ INFO
@@ -25,7 +23,6 @@ export const useFetch=()=>{
 
     const[contactList,setContactList]=useState();
     const[isLoading,setIsLoading]=useState(true);
-    //!hazır veri var ise sayfa yüklendiğinde hemen gelmesini istersek
     useEffect(()=>{
     const db = getDatabase(firebase);
     // user biz name ne yazdıysak onu yazmalısın
@@ -41,14 +38,12 @@ export const useFetch=()=>{
         setIsLoading(false)
     })
 },[])
-//contats useFetch ile verileri yolladık
     return{isLoading,contactList}
 }
 
 //remove
 export const deleteUser = (id)=>{
     const db = getDatabase(firebase);
-    // user biz name ne yazdıysak onu yazmalısın
     const userRef = ref(db,"user/");
     if(window.confirm("Will Be Deleted!") === true){
         remove(ref(db,"user/"+id))
@@ -61,7 +56,6 @@ export const deleteUser = (id)=>{
 //update
 export const updateUser = (info)=>{
     const db = getDatabase(firebase);
-    // user biz name ne yazdıysak onu yazmalısın
     const userRef = ref(db,"user/");
 
     const updates = {};

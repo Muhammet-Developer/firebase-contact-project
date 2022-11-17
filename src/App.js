@@ -15,9 +15,7 @@ function App() {
   console.log("info",info);
   const handleSubmit = (e) =>{
     e.preventDefault();
-    //if :: diyoruz ki info.id eşitlenirse güncelle olmaz ise yeni veri 
     if(info.id){
-      //fonksiyona info bilgisini gönderdik çünkü veriler orda gözükmesi için
       updateUser(info)
     }
     else{
@@ -25,7 +23,6 @@ function App() {
     }
     setInfo(initialValue)
   }
-  //bu veriler contact.js den gönderdik burda yakaladık
   const editUser = (id,username,phoneNumber,gender) => {
     setInfo({id,username,phoneNumber,gender})
   }

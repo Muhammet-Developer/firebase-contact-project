@@ -16,16 +16,12 @@ import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
 const FormComponent = ({info,setInfo,handleSubmit}) => {
   const handleChange = (e)=>{
-    //!name database  name gözüksün diye yani 
-    // !name yazdığı isim 
+ 
     // const name = e.target.name;
     // const value = e.target.value;
     e.preventDefault();
     const {name,value} = e.target
     setInfo({...info,[name]:value});
-    //[name] demek dataya veri gidecek onu key:value tarzında gitsin
-    //name inputlara verdiğimiz name ismi neyse o şekilde gider
-    
     // console.log(info)
   }
   return (
@@ -101,9 +97,6 @@ const FormComponent = ({info,setInfo,handleSubmit}) => {
             </Button>: <Button variant="contained" type="submit" value="Submit">
               update
             </Button> }
-            {/* <Button variant="contained" type="submit" value="Submit">
-              ADD
-            </Button> */}
           </Stack>
         </form>
       </Box>

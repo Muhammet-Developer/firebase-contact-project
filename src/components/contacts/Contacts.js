@@ -10,12 +10,10 @@ import {
 } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-//function.js gelen useFetch çağıralım
 import  {deleteUser, useFetch}  from "../../utils/functions";
 
 const Contacts = ({editUser}) => {
   const {isLoading,contactList} = useFetch()
-  // console.log(contactList);
   return (
     <div>
       <h2 className="contact-header">Contacts</h2>
@@ -32,7 +30,6 @@ const Contacts = ({editUser}) => {
           </TableHead>
 
           <TableBody>
-           {/* Bilgiler gelmediği durumda Loading yazısı görünsün */}
 
            {isLoading?(<TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -41,7 +38,6 @@ const Contacts = ({editUser}) => {
                     Loading
                   </TableCell>
                 </TableRow>): contactList?.lenght===0 ? (
-                  //Bilgiler olmadığı,boş olduğu durumda veri bulunamadı mesajı
                   <TableRow
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
@@ -50,7 +46,6 @@ const Contacts = ({editUser}) => {
                   </TableCell>
                 </TableRow>
                 ):(
-               // Bilgiler geldiği zaman aşağıya yazılacak kodlar çalışsın
                   contactList?.map((item,index)=>(
                       <TableRow key={index}>
                       <TableCell align="center" >{item.username}</TableCell>
